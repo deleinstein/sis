@@ -9,7 +9,12 @@ path = require('path'),
 app = express();
 
 //connect to mongodb
-mongoose.connect('mongodb://localhost:27017/sis');
+//mongoose.connect('mongodb://localhost:27017/sis_1'); --deprecated
+const promise = mongoose.connect('mongodb://localhost/sis_1', {
+    useMongoClient: true,
+    /* other options */
+});
+promise.openUri('mongodb://localhost/sis_1');
 //on connection
 mongoose.connection.on('connected', ()=>{
     console.log('Connected to DB');
