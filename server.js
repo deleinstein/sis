@@ -8,14 +8,14 @@ path = require('path'),
 //instantiate the express class/module/object
 app = express();
 
-const DB = 'sis';
+const DB = 'delcollege';
 //connect to mongodb
 //mongoose.connect('mongodb://localhost:27017/sis_1'); --deprecated
-const promise = mongoose.connect(`mongodb://localhost/${DB}`, {
+const promise = mongoose.connect(`mongodb://deleinstein:deleinstein@ds259085.mlab.com:59085/${DB}`, {
     useMongoClient: true,
     /* other options */
 });
-promise.openUri(`mongodb://localhost/${DB}`);
+promise.openUri(`mongodb://deleinstein:deleinstein@ds259085.mlab.com:59085/${DB}`);
 //on connection
 mongoose.connection.on('connected', ()=>{
     console.log(`Connected to ${DB} DB`);
@@ -28,7 +28,7 @@ mongoose.connection.on('error', (err)=>{
 });
 
 //set port no
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 //adding middleware - use cors
 app.use(cors());
