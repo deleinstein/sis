@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //catch routes
 const route = require('./routes/route');
-app.use('/api', route);
+app.use('api', route);
 
 //inform express of the port in use
 app.listen(port, ()=>{
