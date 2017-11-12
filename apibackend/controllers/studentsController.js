@@ -39,8 +39,8 @@ function updateStudent(req, res, next){
     });
 };
 
-function deleteStudent(req, res, next){
-    Student.remove({_id: req.params.id}, req.body, (err, result)=>{
+function deleteStudent(req, res){
+    Student.remove({_id: req.params.id}, function(err, result){
         if (err){
             res.status(403).json({status: 403, message: 'Student could not be deleted', error: err});
         }

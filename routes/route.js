@@ -10,7 +10,7 @@ router.get('/students', StudentController.getAllStudentsResource);
 //get/read a single student resource
 router.get('/student/:id', StudentController.getStudentResource);
 //update student
-router.put('/student', StudentController.updateStudent);
+router.put('/student/:id', StudentController.updateStudent);
 //delete student
 router.delete('/student/:id', StudentController.deleteStudent);
 
